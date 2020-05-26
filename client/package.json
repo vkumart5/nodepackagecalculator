@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.3.1",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "jquery": "^3.3.1",
     "popper.js": "^1.16.1",
@@ -19,7 +20,9 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "client": "react-scripts start",
+    "server": "cd .. && cd api && nodemon start",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

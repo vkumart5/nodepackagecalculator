@@ -39,7 +39,7 @@ class StackedColumn100Chart extends Component {
 				type: "stackedColumn100",
 				name: "minified in KB",
 				showInLegend: true,
-				color: "#D4AF37",
+				color: "#65c3f8",
 				dataPoints: [
 					{ label: this.props.value[0].name, y:(this.props.value[0].minified/1024)},
 					{ label: this.props.value[1].name, y:(this.props.value[1].minified/1024)},
@@ -50,7 +50,7 @@ class StackedColumn100Chart extends Component {
 				type: "stackedColumn100",
 				name: "minified + gzip in KB",
 				showInLegend: true,
-				color: "#C0C0C0",
+				color: "#65a1f8",
 				dataPoints: [
 					{ label: this.props.value[0].name, y:(this.props.value[0].gzipped/1024)},
 					{ label: this.props.value[1].name, y:(this.props.value[1].gzipped/1024)},

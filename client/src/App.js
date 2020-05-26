@@ -7,22 +7,11 @@ import { render } from '@testing-library/react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-
-import {
-  Route,
-  NavLink,
-  BrowserRouter
-} from "react-router-dom";
 
 import StackedBar100Chart from "./views/column charts/Stacked Column 100 Chart";
 
