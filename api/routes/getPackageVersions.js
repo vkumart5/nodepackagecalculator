@@ -4,7 +4,10 @@ const { exec } = require("child_process");
 const fetch = require('node-fetch');
 
 function getFinalVersions(getVersions){
-    var finalVersions = [];
+    //console.log(getVersions);
+    var previosMajorVersion = getPreviousMajorVersion(getVersions);
+    //console.log(previosMajorVersion);
+    var finalVersions = [previosMajorVersion];
     for(var i=getVersions.length-3; i<getVersions.length; i++){
         finalVersions.push(getVersions[i]);
     }
@@ -12,9 +15,23 @@ function getFinalVersions(getVersions){
     return finalVersions;
 }
 
+function getPreviousMajorVersion(getVersions){
+    var latestVersion = getVersions[getVersions.length-1];
+    var previousVersion;
+    //console.log(latestVersion[0]);
+    for(var i=getVersions.length-1 ; i>=0; i--){
+        if(getVersions[i][0] == latestVersion[0]-1){
+            previousVersion = getVersions[i];
+            //console.log(getVersions[i]);
+            break;
+        }
+    }
+    return previousVersion;
+}
+
 router.post("/", async function(req, res, next){
     var packageName = req.body.package;
-    console.log("packageName   ", packageName);
+    //console.log("packageName   ", packageName);
     exec(`npm view ${packageName} versions  --json`, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);

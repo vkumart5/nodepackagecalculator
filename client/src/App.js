@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-
+import Navbar from 'react-bootstrap/Navbar';
 
 import StackedBar100Chart from "./views/column charts/Stacked Column 100 Chart";
 
@@ -25,6 +25,7 @@ class App extends React.Component{
   }
 
   async callAPI(nodePackage){
+    this.setState({apiResponse:""});
     var apiBody = nodePackage;
     await fetch("http://localhost:9000/getPackageSize", {
       method: 'post',
@@ -43,12 +44,12 @@ class App extends React.Component{
 
   handleClick() {
     var moduleVal = this.state;
-    console.log(moduleVal);
+    //console.log(moduleVal);
     this.callAPI(moduleVal);
   }
 
   handleChange(event){
-    console.log(event.target.value);
+    //console.log(event.target.value);
     this.setState({package: event.target.value});
   }
 
@@ -60,6 +61,11 @@ class App extends React.Component{
       <div className="App">
         <Container>
           <div className="content">
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">
+              Node Package Calculator
+            </Navbar.Brand>
+          </Navbar>
           <InputGroup className="mb-3">
             <FormControl
               placeholder="enter a node module"
